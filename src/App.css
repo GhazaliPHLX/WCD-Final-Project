@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  /* --color-primary akan membuat class:
+    - bg-primary
+    - text-primary
+    - border-primary
+    - dll.
+  */
+  --color-primary: #005C99;   /* Biru tua */
+  --color-secondary: #22C55E; /* Hijau cerah */
+  --color-accent: #ACD792;     /* Hijau sangat pucat */
+  --color-dark: #0B233F;      /* Biru sangat gelap */
+
+  /* --font-family-sans akan membuat class:
+    - font-sans
+  */
+  --font-family-sans: "Nunito Sans", sans-serif;
+}
