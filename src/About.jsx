@@ -16,15 +16,15 @@ const AboutUs = () => {
             
 
             {/* Judul dan Paragraf */}
-            <h2 className="text-5xl font-bold text-black leading-tight mb-6">
+            <h2 className="text-5xl font-bold text-primary leading-tight mb-6">
               About us.
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-neutral leading-relaxed mb-8">
             PilahPraktis didirikan pada tahun 2025 atas dasar sebuah keyakinan sederhana: pengelolaan sampah yang baik dimulai dari pemilahan yang benar di sumbernya. Kami melihat betapa banyaknya material berharga yang terbuang sia-sia karena tercampur, dan kami hadir untuk memberikan solusi
             </p>
             <a 
               href="#contact" 
-              className="inline-block bg-lime-400 text-gray-900 font-bold py-3 px-8 rounded-md hover:bg-lime-500 transition-colors"
+              className="inline-block bg-accent text-white font-bold py-3 px-8 rounded-md hover:bg-primary transition-colors"
             >
               Learn more
             </a>

@@ -22,13 +22,13 @@ export default function Hero() {
           
           <div className="flex flex-col gap-4 text-black order-last md:order-first">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center md:text-left"> {/* Ukuran font mobile disesuaikan */}
-              Layanan <br /> <span className='text-green-900'>Pemilahan Sampah</span> <br /> Professional
+              Layanan <br /> <span className='text-primary'>Pemilahan Sampah</span> <br /> Professional
             </h1>
-            <p className="text-gray-800 text-center md:text-left"> {/* Text align disesuaikan */}
+            <p className="text-neutral text-center md:text-left"> {/* Text align disesuaikan */}
               Sampah terpilah dengan baik adalah langkah pertama untuk memaksimalkan potensi daur ulang dan mengurangi limbah ke TPA.
             </p>
             <div className='flex justify-center md:justify-start md:pt-24'>
-            <button className='bg-accent rounded-md w-40 text-white font-semibold border border-black hover:bg-green-600 transition-colors'>Layanan Kami</button>
+            <button className='bg-accent rounded-md w-40 text-white font-reguler hover:bg-primary hover:text-black   transition-colors'>Layanan Kami</button>
             </div>
           </div>
           
