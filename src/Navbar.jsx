@@ -15,13 +15,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-100 bg-white text-black shadow-lg rounded-b-3xl">
+    <nav className="fixed top-0 left-0 right-0 z-100 bg-secondary text-black shadow-lg rounded-b-3xl">
       <div className="max-w-7xl mx-auto px-4">  
         <div className="flex justify-between items-center h-16">
           
           {/* Logo atau Brand */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold">PilahPraktis</a>
+            <a href="/" className="text-2xl font-bold text-primary">PilahPraktis</a>
           </div>
 
           {/* Menu untuk Desktop (tersembunyi di mobile) 💻 */}
@@ -34,7 +34,7 @@ const Navbar = () => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="py-2 px-3 rounded-md text-sm font-medium hover:bg-accent transition-colors"
+                className="py-2 px-3 rounded-md text-sm text-primary font-medium hover:bg-accent hover:text-white transition-colors"
               >
                 {link.label}
               </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-accent focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-white hover:bg-accent focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {/* Tampilkan ikon close jika menu terbuka, atau ikon bars jika tertutup */}
@@ -67,7 +67,7 @@ const Navbar = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="block py-2 px-3 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-accent transition-colors"
+              className="block py-2 px-3 rounded-md text-base font-medium text-primary hover:text-white hover:bg-accent transition-colors"
             >
               {link.label}
             </Link>

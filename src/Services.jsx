@@ -10,7 +10,7 @@ const servicesData = [
     image: wasteSortImage,
     icon: <FaRecycle className="text-xl" />,
     title: 'Layanan Pemilahan Terpadu',
-    description: 'Layanan pemilahan sampah yang sistematis dan andal untuk bisnis, perkantoran, dan komunitas, memastikan sampah Anda siap untuk didaur ulang.',
+    description: 'Layanan pemilahan sampah rumahan yang sistematis dan andal untuk memastikan sampah Anda siap untuk didaur ulang.',
     link: '#',
   },
   {
@@ -52,13 +52,13 @@ const ServiceCard = ({ image, icon, title, description, link }) => (
 // 5. Komponen Utama
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 bg-blue-50">
+    <section id="services" className="py-16 bg-primary-50">
       <div className="container mx-auto px-6 xl:px-12">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-black leading-tight mb-6">
+          <h2 className="text-5xl font-bold text-primary leading-tight mb-6">
             Layanan Kami.
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-neutral max-w-2xl mx-auto">
             Kami menawarkan solusi terfokus untuk membantu Anda mengelola sampah secara praktis dan bertanggung jawab.
           </p>
         </div>

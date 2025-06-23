@@ -26,15 +26,15 @@ export default function CTA() {
         <div className="flex flex-col gap-6 items-center">
           
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black">
-            Siap Membuat <br /> <span className='text-green-900'>Perubahan?</span>
+            Siap Membuat <br /> <span className='text-primary'>Perubahan?</span>
           </h2>
 
-          <p className="text-gray-800 max-w-xl"> {/* max-w ditambahkan agar teks tidak terlalu lebar */}
+          <p className="text-neutral max-w-xl"> {/* max-w ditambahkan agar teks tidak terlalu lebar */}
             Diskusikan kebutuhan pengelolaan sampah Anda dengan tim ahli kami. Temukan solusi yang paling efisien untuk bisnis atau komunitas Anda.
           </p>
           
           <div className='pt-6'>
-            <button className='bg-accent rounded-md py-3 px-8 text-white font-semibold border border-black hover:bg-green-600 transition-colors shadow-md'>
+            <button className='bg-accent rounded-md py-3 px-8 text-white font-semibold  hover:bg-primary transition-colors shadow-md'>
               Jadwalkan Konsultasi
             </button>
           </div>

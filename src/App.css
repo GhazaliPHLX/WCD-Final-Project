@@ -7,13 +7,15 @@
     - border-primary
     - dll.
   */
-  --color-primary: #005C99;   /* Biru tua */
-  --color-secondary: #22C55E; /* Hijau cerah */
-  --color-accent: #ACD792;     /* Hijau sangat pucat */
-  --color-dark: #0B233F;      /* Biru sangat gelap */
+  --color-primary: #095592;
+  --color-primary-50: #edf8fe;
+  --color-secondary: #fff2e3; 
+  --color-accent: #166534;     
+  --color-info: #cffafe;
+  --color-warning: #fef3c7;
+  --color-danger: #fee2e2;
+  --color-neutral: #1f2933;     
 
-  /* --font-family-sans akan membuat class:
-    - font-sans
-  */
+  
   --font-family-sans: "Nunito Sans", sans-serif;
 }
