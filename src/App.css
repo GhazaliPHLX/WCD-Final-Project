@@ -1,18 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* --color-primary akan membuat class:
-    - bg-primary
-    - text-primary
-    - border-primary
-    - dll.
-  */
+  
   --color-primary: #095592;
   --color-primary-50: #edf8fe;
-  --color-secondary: #fff2e3; 
+  --color-primary-100: #D7F1FD;
+  --color-primary-500: #3AA8FC;
+  --color-primary-600: #0D8CEE;
+
+  --color-secondary: #fff2e3;
+  --color-secondary-50: #FFF9F1;
+
   --color-accent: #166534;     
   --color-info: #cffafe;
   --color-warning: #fef3c7;
+  --color-warning-400: #FBBF24;
+  --color-warning-600: #D97706;
+
   --color-danger: #fee2e2;
   --color-neutral: #1f2933;     
 

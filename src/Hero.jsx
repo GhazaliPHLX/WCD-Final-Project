@@ -9,8 +9,8 @@ export default function Hero() {
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       <div className="
-          relative w-11/12 max-w-7xl p-8 {/* Padding sekarang 2rem di semua ukuran */}
-          bg-white/20 
+          relative w-11/12 max-w-7xl p-8 
+          bg-secondary-50
           backdrop-blur-lg 
           rounded-3xl 
           border border-white/30 
@@ -18,17 +18,17 @@ export default function Hero() {
           min-h-[60vh] 
           flex flex-col justify-center">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-start">
           
           <div className="flex flex-col gap-4 text-black order-last md:order-first">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center md:text-left"> {/* Ukuran font mobile disesuaikan */}
-              Layanan <br /> <span className='text-primary'>Pemilahan Sampah</span> <br /> Professional
+            <h1 className="text-4xl md:text-3xl font-extrabold leading-tight text-center md:text-left max-w-[400px]"> {/* Ukuran font mobile disesuaikan */}
+             Sampah Menumpuk?  Pesan <span className='text-primary-600'>Penjemputan dalam Sekejap. </span>  
             </h1>
-            <p className="text-neutral text-center md:text-left"> {/* Text align disesuaikan */}
-              Sampah terpilah dengan baik adalah langkah pertama untuk memaksimalkan potensi daur ulang dan mengurangi limbah ke TPA.
+            <p className="text-black text-center md:text-left max-w-[300px] mt-16"> {/* Text align disesuaikan */}
+              Jadwalkan penjemputan sampah sesuai kebutuhanmu, langsung dari website. Praktis, cepat, dan dapat diandalkan.
             </p>
-            <div className='flex justify-center md:justify-start md:pt-24'>
-            <button className='bg-accent rounded-md w-40 text-white font-reguler hover:bg-primary hover:text-black   transition-colors'>Layanan Kami</button>
+            <div className='flex justify-center md:justify-start mt-6 md:mt-16'>
+            <button className='bg-warning-400 rounded-2xl h-8 w-56 text-black font-medium hover:bg-warning-600 transition-colors'>Yuk, Coba Layanan Kami</button>
             </div>
           </div>
           
