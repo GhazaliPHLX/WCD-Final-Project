@@ -1,6 +1,6 @@
-import gacoan from './assets/Gacoan.png';
-import cakrawala from './assets/Cakrawala.jpg';
-import wizzmie from './assets/Wizzmie.png';
+import banksampah from './assets/BankSampah.png';
+import wasteChg from './assets/WasteChange.png';
+import smash from './assets/Smash.png';
 
 
 const Partners = () => {
@@ -13,11 +13,11 @@ const Partners = () => {
           </h3>
           
           {/* Kontainer untuk logo-logo */}
-          <div className="flex flex-wrap justify-center items-center gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-24">
             
-            <img className="max-h-20 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300" src={gacoan} alt="Mie Gacoan" />
-            <img className="max-h-20 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300" src={cakrawala} alt="Cakyu" />
-            <img className="max-h-20 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300" src={wizzmie} alt="Wizzmie" />
+            <img className="max-h-20 max-w-60" src={banksampah} alt="Mie Gacoan" />
+            <img className="max-h-20" src={wasteChg} alt="Cakyu" />
+            <img className="max-h-20" src={smash} alt="Wizzmie" />
           </div>
           <h3 className="text-sm font-semibold text-black tracking-widest uppercase mt-10">
             Mitra Kebanggaan kami

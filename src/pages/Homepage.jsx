@@ -1,10 +1,9 @@
 import '../App.css'
-//import Navbar from '../Navbar';
 import Hero from '../Hero';
 import AboutUs from '../About';
+import Why from '../Why';
 import Partners from '../Partner';
 import ServicesSection from '../Services';
-import CTA from '../CTA';
 import Footer from '../Footer';
 
 
@@ -20,8 +19,9 @@ function Homepage() {
         <Hero />
         <Partners />
         <AboutUs />
+        <Why />
         <ServicesSection />
-        <CTA />
+        
         <Footer />
       </main>
 

@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 pl-4">
             <a href="/" className="flex items-center space-x-2 text-2xl font-bold text-black">
               <img src={logo} alt="Logo" className="w-8 h-8" />
               <span className="hidden md:inline">PilahPraktis</span>
@@ -115,7 +115,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center pr-6">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-white hover:bg-accent focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-accent focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -135,7 +135,7 @@ const Navbar = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="block py-2 px-3 rounded-md text-base font-medium text-primary hover:text-white hover:bg-accent transition-colors cursor-pointer"
+              className="block py-2 px-3 rounded-md text-base font-medium hover:text-white hover:bg-accent transition-colors cursor-pointer"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -148,7 +148,7 @@ const Navbar = () => {
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <img
-                    src="/avatar.svg"
+                    src={pfp}
                     alt="avatar"
                     className="w-8 h-8 rounded-full border"
                   />
@@ -170,7 +170,7 @@ const Navbar = () => {
                   navigate('/Login');
                   setIsOpen(false);
                 }}
-                className="w-full py-2 px-4 mt-2 bg-primary text-white rounded-md font-semibold"
+                className="w-full py-2 px-4 mt-2 bg-primary-500 text-white rounded-md font-semibold"
               >
                 Login
               </button>

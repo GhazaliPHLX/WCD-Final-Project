@@ -2,6 +2,7 @@ import {
   FaRecycle, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, 
   FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn 
 } from 'react-icons/fa';
+import Logo from './assets/Logo.png'
 
 // 2. Data untuk link media sosial. Array 'quickLinks' sudah tidak dibutuhkan.
 const socialLinks = [
@@ -15,7 +16,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-gray-800 text-white">
+    <footer id="contact" className="bg-neutral-100">
       <div className="container mx-auto px-6 py-16">
         {/* -- Bagian Atas Footer dengan Grid -- */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -23,13 +24,13 @@ const Footer = () => {
           {/* Kolom 1: Identitas & Logo */}
           <div className="mb-6 md:mb-0">
             <div className="flex items-center mb-4">
-              <FaRecycle className="text-green-400 text-2xl mr-2" />
+              <img src={Logo} alt="" className='w-8' />
               <span className="text-xl font-bold">
-                Pilah<span className="text-green-400">Praktis</span>
+                Pilah<span className="">Praktis</span>
               </span>
             </div>
-            <p className="text-gray-400 text-sm">
-              Solusi cerdas untuk pengelolaan sampah yang bertanggung jawab.
+            <p className=" text-sm">
+              Sampah Anorganik Menumpuk? Pesan <span className='text-primary-600'>Penjemputan dalam Sekejap.</span>
             </p>
           </div>
 
@@ -43,7 +44,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-3"
+                    className=" hover:text-white transition-colors flex items-center gap-3"
                   >
                     <span className="text-xl">{social.icon}</span>
                     <span>{social.name}</span>
@@ -56,21 +57,21 @@ const Footer = () => {
           {/* Kolom 3: Informasi Kontak */}
           <div>
             <h3 className="text-lg font-bold mb-4">Hubungi Kami</h3>
-            <address className="not-italic text-gray-400">
+            <address className="not-italic ">
               <div className="flex items-start mb-4">
-                <FaMapMarkerAlt className="mt-1 mr-3 text-green-400 flex-shrink-0" />
+                <FaMapMarkerAlt className="mt-1 mr-3 t flex-shrink-0" />
                 <p>Jl. Kemuning No. 17, Cipete Selatan, Cilandak, Jakarta Selatan 12410</p>
               </div>
               <div className="flex items-center mb-4">
-                <FaPhoneAlt className="mr-3 text-green-400" />
+                <FaPhoneAlt className="mr-3 t" />
                 <p>+62 812-3456-7890</p>
               </div>
               <div className="flex items-center mb-4">
-                <FaEnvelope className="mr-3 text-green-400" />
+                <FaEnvelope className="mr-3 t" />
                 <p>info@PilahPraktis.com</p>
               </div>
               <div className="flex items-center">
-                <FaClock className="mr-3 text-green-400" />
+                <FaClock className="mr-3 t" />
                 <p>Senin-Jum'at: 8AM - 5PM</p>
               </div>
             </address>
@@ -79,7 +80,7 @@ const Footer = () => {
         </div>
         
         {/* -- Bagian Bawah Footer untuk Copyright -- */}
-        <div className="mt-16 pt-8 border-t border-gray-700 text-center">
+        <div className="mt-16 pt-8 text-center">
           <p className="text-gray-500 text-sm">
             &copy; {currentYear} PilahPraktis Waste Management. All rights reserved.
           </p>

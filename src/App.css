@@ -10,6 +10,7 @@
 
   --color-secondary: #fff2e3;
   --color-secondary-50: #FFF9F1;
+  --color-secondary-600: #E99528;
 
   --color-accent: #166534;     
   --color-info: #cffafe;
@@ -19,6 +20,7 @@
 
   --color-danger: #fee2e2;
   --color-neutral: #1f2933;     
+  --color-neutral-100: #F4F5F6;     
 
   
   --font-family-sans: "Nunito Sans", sans-serif;
