@@ -5,6 +5,8 @@ import Order from './pages/Order';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './AuthContext';
+import Footer from './Footer';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
 
 
       </Routes>
+      <Footer/>
     </BrowserRouter>
     </AuthProvider>
   );

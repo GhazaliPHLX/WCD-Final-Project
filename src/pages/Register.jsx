@@ -48,10 +48,9 @@ function Register(){
 
     return(
         <>
-        <section>
-            <form onSubmit={handleRegister} className="bg-gray-200 p-8 max-w-md mx-auto rounded-xl shadow-md space-y-4 mt-30">
-                <h2 className="text-center text-2xl font-semibold">Create an account</h2>
-                <p className="text-center text-gray-700 mb-4 text-sm">Masuk untuk menggunakan jasa kami</p>
+        <section className="pt-20 md:h-[900px]">
+            <form onSubmit={handleRegister} className="bg-white border border-gray-300 p-8 max-w-md mx-auto rounded-xl shadow-md space-y-4 mt-30">
+                <h2 className="text-center text-2xl font-semibold md:pb-4">Register</h2>
             
             <div>
                 <label htmlFor="username"className="block text-sm font-medium text-gray-800 mb-1">Username</label>
@@ -102,7 +101,7 @@ function Register(){
             type="submit"
             className="w-full bg-black text-white rounded-full py-2 text-center hover:bg-gray-600 transition">Register</button>
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-            <p className="text-sm text-gray-700 text bg-center">Sudah memiliki akun? <span> <Link to="/Login">Login</Link> </span>   </p>
+            <p className="text-sm text-gray-700 text-center bg-center">Sudah memiliki akun? <span> <Link to="/Login">Login</Link> </span>   </p>
             </form>
         </section>
         </>

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section 
       id="home"
-      className="relative bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center"
+      className="relative bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center pt-16 pb-2 md:pt-0"
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay */}
@@ -13,7 +13,7 @@ export default function Hero() {
 
       {/* Content Container */}
       <div className="
-        relative z-10 w-11/12 max-w-7xl p-6 md:p-8
+        relative z-10 w-11/12 max-w-7xl p-6  md:p-8
         bg-secondary-200 backdrop-blur-sm 
         rounded-3xl border border-white/30 shadow-lg
         min-h-[60vh] flex flex-col justify-center

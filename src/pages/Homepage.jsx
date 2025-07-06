@@ -4,7 +4,6 @@ import AboutUs from '../About';
 import Why from '../Why';
 import Partners from '../Partner';
 import ServicesSection from '../Services';
-import Footer from '../Footer';
 
 
 function Homepage() {
@@ -22,7 +21,7 @@ function Homepage() {
         <Why />
         <ServicesSection />
         
-        <Footer />
+        
       </main>
 
     </div> 

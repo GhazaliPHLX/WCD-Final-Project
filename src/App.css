@@ -22,7 +22,9 @@
 
   --color-danger: #fee2e2;
   --color-neutral: #1f2933;     
-  --color-neutral-100: #F4F5F6;     
+  --color-neutral-100: #F4F5F6;
+  --color-border: #666666;
+
 
   --text-head: 39px;
   --text-head3: 25px;
