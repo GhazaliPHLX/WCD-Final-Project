@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FaRecycle, FaUserCircle, FaMapMarkerAlt, FaTrashAlt, FaEdit, FaArrowRight, FaLeaf, FaAward, FaBolt } from 'react-icons/fa';
 
 export default function Order() {
@@ -184,5 +184,5 @@ export default function Order() {
   );
 }
 
-// Tambahkan ini di file CSS global bila diperlukan:
+
 export const inputStyle = "w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none";

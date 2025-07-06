@@ -9,12 +9,12 @@ export default function Hero() {
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#fef6ec]/80 z-0" />
+        <div className="absolute inset-0 bg-[#fef6ec]/30 z-0" />
 
       {/* Content Container */}
       <div className="
         relative z-10 w-11/12 max-w-7xl p-6 md:p-8
-        bg-secondary-50 backdrop-blur-lg 
+        bg-secondary-200 backdrop-blur-sm 
         rounded-3xl border border-white/30 shadow-lg
         min-h-[60vh] flex flex-col justify-center
       ">
@@ -22,15 +22,15 @@ export default function Hero() {
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 items-center gap-8">
           
           {/* Text Section */}
-          <div className="flex flex-col gap-6 text-black items-center md:items-start text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-extrabold leading-snug max-w-md">
+          <div className="flex flex-col gap-6 text-black items-center md:items-start text-center md:text-left md:pb-14 md:pl-2">
+            <h1 className="text-3xl md:text-head font-bold leading-snug max-w-md">
               Sampah Anorganik Menumpuk? <br />
               Pesan <span className="text-primary-600">Penjemputan dalam Sekejap.</span>
             </h1>
-            <p className="max-w-md">
+            <h3 className="max-w-md text-head3">
               Jadwalkan penjemputan sampah sesuai kebutuhanmu, langsung dari website.
               Praktis, cepat, dan dapat diandalkan.
-            </p>
+            </h3>
             <button className="bg-warning-400 rounded-2xl px-5 py-2 text-black font-medium hover:bg-warning-600 transition-colors">
               Yuk, Coba Layanan Kami
             </button>

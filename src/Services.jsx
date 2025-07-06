@@ -87,10 +87,10 @@ const ServicesSection = () => {
     <section id="services" className="py-16 bg-secondary-50">
       <div className="container mx-auto px-6 xl:px-12">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-primary leading-tight mb-6">
+          <h3 className="text-3xl md:text-head font-bold text-primary leading-tight mb-6">
             Layanan Kami.
           </h3>
-          <p className=" w-full mx-auto font-bold text-2xl">
+          <p className=" w-full mx-auto font-semibold text-2xl md:text-head3">
             Dari tumpukan <span className='text-primary-600'>sampah dadakan</span> hingga rencana <span className='text-primary-600'>pengelolaan rutin</span>, kami punya solusinya.
           </p>
         </div>
