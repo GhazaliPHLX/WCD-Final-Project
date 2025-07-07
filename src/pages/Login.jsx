@@ -37,7 +37,7 @@ function Login(){
         }
         if(data){
             console.log(data)
-            navigate('/')
+            navigate('/User')
             setError(null)
             login(data);
         }

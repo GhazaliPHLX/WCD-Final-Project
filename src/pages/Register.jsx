@@ -40,7 +40,7 @@ function Register(){
             console.log(data)
             setError(null)
             login(data[0]);
-            navigate('/')
+            navigate('/Register')
         }
     }
 

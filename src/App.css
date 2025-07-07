@@ -18,12 +18,14 @@
   --color-info: #cffafe;
   --color-warning: #fef3c7;
   --color-warning-400: #FBBF24;
+  --color-warning-500: #FCB03A;
   --color-warning-600: #D97706;
 
   --color-danger: #fee2e2;
   --color-neutral: #1f2933;     
   --color-neutral-100: #F4F5F6;
   --color-border: #666666;
+  --color-success-50: #F0FDF4;
 
 
   --text-head: 39px;
