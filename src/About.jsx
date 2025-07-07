@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutImage from './assets/GoGreen.jpg'; // Ganti dengan path gambar gedungmu
+import warriorImg from './assets/Warrior.jpg'; // Ganti dengan path gambar gedungmu
 import { FaStarOfLife } from 'react-icons/fa'; // Contoh ikon untuk ornamen
 
 
@@ -29,10 +29,10 @@ Dengan memanfaatkan teknologi, kami membangun platform yang menghubungkan kebutu
           {/* === KOLOM KANAN: Gambar & Ornamen === */}
           <div className="relative flex justify-center items-center order-first lg:order-last">
             {/* Wrapper untuk gambar dan ornamen agar mudah di-positioning */}
-            <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px]">
+            <div className="relative w-[300px] h-[400px] md:w-[600px] md:h-[400px]">
               {/* Gambar Utama */}
               <img 
-                src={aboutImage} 
+                src={warriorImg} 
                 alt="About Us" 
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
               />

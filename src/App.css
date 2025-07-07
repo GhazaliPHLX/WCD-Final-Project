@@ -5,20 +5,31 @@
   --color-primary: #095592;
   --color-primary-50: #edf8fe;
   --color-primary-100: #D7F1FD;
+  --color-primary-200: #ADE3FC;
   --color-primary-500: #3AA8FC;
   --color-primary-600: #0D8CEE;
 
   --color-secondary: #fff2e3;
   --color-secondary-50: #FFF9F1;
+  --color-secondary-200: #FFE4C7;
+  --color-secondary-600: #E99528;
 
   --color-accent: #166534;     
   --color-info: #cffafe;
   --color-warning: #fef3c7;
   --color-warning-400: #FBBF24;
+  --color-warning-500: #FCB03A;
   --color-warning-600: #D97706;
 
   --color-danger: #fee2e2;
   --color-neutral: #1f2933;     
+  --color-neutral-100: #F4F5F6;
+  --color-border: #666666;
+  --color-success-50: #F0FDF4;
+
+
+  --text-head: 39px;
+  --text-head3: 25px;
 
   
   --font-family-sans: "Nunito Sans", sans-serif;

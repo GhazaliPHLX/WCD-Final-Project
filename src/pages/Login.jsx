@@ -37,7 +37,7 @@ function Login(){
         }
         if(data){
             console.log(data)
-            navigate('/')
+            navigate('/User')
             setError(null)
             login(data);
         }
@@ -48,10 +48,10 @@ function Login(){
 
     return(
         <>
-        <section className="pt-20">
+        <section className="pt-20 md:h-[900px]">
         <form 
         onSubmit={handleLogin}
-        className="bg-gray-200 p-8 max-w-md mx-auto rounded-xl shadow-md space-y-4 mt-30">
+        className="bg-white p-8 max-w-md mx-auto rounded-xl border border-gray-300 shadow-md space-y-4 mt-30">
             <h2 className="text-2xl font-semibold text-center">Login</h2>
             <p className="text-center text-gray-700 mb-4 text-sm">Masuk untuk menggunakan jasa kami</p>
             
@@ -98,7 +98,7 @@ function Login(){
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
 
-            <p className="text-sm text-gray-700 text bg-center">Belum memiliki akun? <span> <Link to="/Register">Register</Link> </span>   </p>
+            <p className="text-sm text-gray-700 text-center bg-center">Belum memiliki akun? <span> <Link to="/Register">Register</Link> </span>   </p>
         </form>
         </section>
         </>

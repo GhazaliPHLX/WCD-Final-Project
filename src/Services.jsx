@@ -1,70 +1,101 @@
 
-import { FaRecycle, FaTrashAlt, FaChartLine, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
-import wasteSortImage from './assets/WasteSort.jpg';
-import wasteTrackImage from './assets/WasteTrack.jpg';
-import consultImage from './assets/Consult.jpg';
+import wasteSortImage from './assets/Panggilan.jpg';
+import wasteTrackImage from './assets/Rutin.jpg';
+import callIcon from './assets/Calendar.png'
+import RutinIcon from './assets/RutinIcon.png'
+import { Link } from 'react-router-dom';
 
 const servicesData = [
   {
     image: wasteSortImage,
-    icon: <FaRecycle className="text-xl" />,
-    title: 'Layanan Pemilahan Terpadu',
-    description: 'Layanan pemilahan sampah rumahan yang sistematis dan andal untuk memastikan sampah Anda siap untuk didaur ulang.',
-    link: '#',
+    icon: <img className='w-6 h-6' src={callIcon} alt="Call Service Icon" />,
+    title: 'Layanan Panggilan',
+    description: (
+      <>
+        <p className="mb-4">
+          Butuh angkut sampah sekarang?{' '}
+          <span className="text-secondary-600 font-semibold">Pesan sekali jemput</span>,
+          sama mudahnya seperti memesan ojek online. Tim kami akan segera datang
+          sesuai permintaan Anda.
+        </p>
+        <h4 className="font-semibold mb-2 text-gray-800">Cocok untuk:</h4>
+        <ul className="list-disc list-inside space-y-1">
+          <li>Sampah yang menumpuk tak terduga.</li>
+          <li>Kebutuhan pembersihan setelah acara atau renovasi kecil.</li>
+          <li>Anda yang ingin mencoba layanan kami untuk pertama kali.</li>
+        </ul>
+      </>
+    ),
+    link: '/panggilan',
   },
   {
     image: wasteTrackImage,
-    icon: <FaTrashAlt className="text-xl" />,
-    title: 'Pelacakan & Laporan Sampah',
-    description: 'Pantau perjalanan sampah terpilah Anda dan dapatkan laporan data transparan untuk mengukur dampak positif yang Anda hasilkan.',
-    link: '#',
-  },
-  {
-    image: consultImage,
-    icon: <FaChartLine className="text-xl" />,
-    title: 'Konsultasi Manajemen Limbah',
-    description: 'Bimbingan ahli dari tim kami untuk membantu organisasi Anda merancang dan menerapkan sistem pengelolaan sampah yang paling efektif dan efisien.',
-    link: '#',
+    icon: <img className='w-6 h-6' src={RutinIcon} alt="Routine Service Icon" />,
+    title: 'Layanan Rutin',
+    description: (
+      <>
+        <p className="mb-4">
+          Atur jadwal{' '}
+          <span className="text-secondary-600 font-semibold">penjemputan otomatis</span>{' '}
+          sesuai kebutuhan, baik mingguan maupun bulanan. Praktis dan efisien, tanpa perlu repot memesan berulang kali.
+        </p>
+        <h4 className="font-semibold mb-2 text-gray-800">Cocok untuk:</h4>
+        <ul className="list-disc list-inside space-y-1">
+          <li>Kebutuhan konsisten rumah tangga dan keluarga.</li>
+          <li>Pengelolaan sampah untuk kantor, ruko, atau tempat usaha.</li>
+          <li>Anda yang menginginkan lingkungan bersih secara teratur.</li>
+        </ul>
+      </>
+    ),
+    link: '/rutin',
   },
 ];
 
+
+//  KOMPONEN CARD 
 const ServiceCard = ({ image, icon, title, description, link }) => (
-  <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
-    <img src={image} alt={title} className="w-full h-48 object-cover" />
-    <div className="p-6">
+  <div className="bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 max-w-[458px]">
+    <img src={image} alt={title} className="w-full h-60 object-cover" />
+    
+    <div className="p-8 flex flex-col grow"> 
       <div className="flex items-center mb-4">
         <div className="bg-green-100 text-green-600 p-3 rounded-full mr-4">
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+        <h3 className="text-2xl font-bold text-gray-800">{title}</h3> 
       </div>
-      <p className="text-gray-600 mb-4 h-24">{description}</p>
-      <a href={link} className="text-green-500 font-medium inline-flex items-center group">
+      
+      <div className="grow text-gray-600 text-base leading-relaxed"> 
+        {description}
+      </div>
+      
+      {/* Link di bagian bawah card */}
+      <Link to={link} className="text-green-600 font-bold inline-flex items-center group mt-6"> 
         Pelajari Lebih Lanjut
         <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-      </a>
+      </Link>
     </div>
   </div>
 );
 
 
-// 5. Komponen Utama
+//  Komponen Utama
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 bg-primary-50">
+    <section id="services" className="py-16 bg-secondary-50">
       <div className="container mx-auto px-6 xl:px-12">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-primary leading-tight mb-6">
+          <h3 className="text-3xl md:text-head font-bold text-primary leading-tight mb-6">
             Layanan Kami.
-          </h2>
-          <p className="text-neutral max-w-2xl mx-auto">
-            Kami menawarkan solusi terfokus untuk membantu Anda mengelola sampah secara praktis dan bertanggung jawab.
+          </h3>
+          <p className=" w-full mx-auto font-semibold text-2xl md:text-head3">
+            Dari tumpukan <span className='text-primary-600'>sampah dadakan</span> hingga rencana <span className='text-primary-600'>pengelolaan rutin</span>, kami punya solusinya.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Mapping data ke komponen ServiceCard */}
+        <div className="flex flex-wrap gap-12 md:gap-x-30 justify-center">
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}
