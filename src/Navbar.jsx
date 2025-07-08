@@ -90,7 +90,7 @@ const Navbar = () => {
                     <p className="text-sm text-gray-700 text-center mt-2">Halo, {user.username}</p>
                     <button
                       onClick={logout}
-                      className="w-full mt-3 flex items-center gap-2 px-3 py-2 text-sm bg-gray-100 hover:bg-red-100 text-black rounded"
+                      className="w-full mt-3 flex items-center gap-2 px-3 py-2 text-sm bg-gray-100 hover:bg-red-400 text-black rounded"
                     >
                       <FiLogOut className="text-lg" />
                       Logout
@@ -163,8 +163,9 @@ const Navbar = () => {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="text-sm px-3 py-1 bg-red-500 text-white rounded"
+                  className=" mt-2 flex items-center justify-center gap-2 px-4 py-2 text-sm bg-red-500 hover:bg-red-600 text-white rounded-md transition"
                 >
+                  <FiLogOut className="text-base" />
                   Logout
                 </button>
               </div>

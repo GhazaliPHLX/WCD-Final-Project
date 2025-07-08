@@ -1,7 +1,21 @@
 import heroImg from './assets/Hero.jpg';
 import wasteImg from './assets/High.jpg';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
 
 export default function Hero() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleClick = () => {
+    if (user) {
+      navigate('/User');
+    } else {
+      navigate('/Login');
+    }
+  };
+
   return (
     <section 
       id="home"
@@ -9,7 +23,7 @@ export default function Hero() {
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay */}
-        <div className="absolute inset-0 bg-[#fef6ec]/30 z-0" />
+      <div className="absolute inset-0 bg-[#fef6ec]/30 z-0" />
 
       {/* Content Container */}
       <div className="
@@ -18,7 +32,6 @@ export default function Hero() {
         rounded-3xl border border-white/30 shadow-lg
         min-h-[60vh] flex flex-col justify-center
       ">
-        {/* Responsive Layout: Mobile = stacked, Desktop = side by side */}
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 items-center gap-8">
           
           {/* Text Section */}
@@ -31,7 +44,10 @@ export default function Hero() {
               Jadwalkan penjemputan sampah sesuai kebutuhanmu, langsung dari website.
               Praktis, cepat, dan dapat diandalkan.
             </h3>
-            <button className="bg-warning-400 rounded-2xl px-5 py-2 text-black font-medium hover:bg-warning-600 transition-colors">
+            <button 
+              onClick={handleClick}
+              className="bg-warning-400 rounded-2xl px-5 py-2 text-black font-medium hover:bg-warning-500 transition-colors"
+            >
               Yuk, Coba Layanan Kami
             </button>
           </div>
@@ -49,3 +65,4 @@ export default function Hero() {
     </section>
   );
 }
+
