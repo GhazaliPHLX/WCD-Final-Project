@@ -9,13 +9,13 @@ import botolWarna from '../assets/BotolWarna.jpg';
 import aluminimumimg from '../assets/Kaleng.jpg';
 import kertasimg from '../assets/Kertas.jpg';
 import kardusimg from '../assets/Kardus.jpg';
+import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 
 export default function Panggilan() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [waktu, setWaktu] = useState('');
   const [alamat, setAlamat] = useState('');
-  const [editMode, setEditMode] = useState(false);
   const [keranjang, setKeranjang] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate()
@@ -52,13 +52,21 @@ export default function Panggilan() {
     });
   };
 
+  const hapusItem = (index) => {
+  setKeranjang((prev) => {
+    const newKeranjang = [...prev];
+    newKeranjang.splice(index, 1);
+    return newKeranjang;
+  });
+};
+
   const handlePesan = async () => {
     if (!alamat || !selectedDate || !waktu || keranjang.length === 0) {
       alert('Mohon lengkapi semua data.');
       return;
     }
 
-    const totalHarga = keranjang.reduce((sum, item) => sum + item.subtotal, 0);
+    const totalHarga = Math.floor(keranjang.reduce((sum, item) => sum + item.subtotal, 0) * 0.9);
 
     const { data: pesanan, error } = await supabase.from('tb_pesanan').insert([
       {
@@ -110,15 +118,10 @@ export default function Panggilan() {
 
         <label className="block text-sm font-medium mb-1">Alamat</label>
         <textarea
-          disabled={!editMode}
-          value={alamat}
-          onChange={(e) => setAlamat(e.target.value)}
-          className="w-full p-2 border rounded-md mb-2 bg-white"
-        />
-        <div className="flex gap-2 mb-4">
-          <button onClick={() => setEditMode(true)} className="bg-primary-500 text-white px-4 py-1 rounded-lg hover:bg-primary-600">Edit</button>
-          <button onClick={() => setEditMode(false)} className="bg-primary-500 text-white px-4 py-1 rounded-lg hover:bg-primary-600">Simpan</button>
-        </div>
+            value={alamat}
+            onChange={(e) => setAlamat(e.target.value)}
+            className="w-full p-2 border rounded-md mb-4 bg-white"
+          />
 
         <div className='flex gap-4 mb-4'>
           <div className="w-auto">
@@ -141,8 +144,15 @@ export default function Panggilan() {
               placeholder="--:--"
               className="w-full p-2 border rounded-md bg-white"
               value={waktu}
-              onChange={(e) => setWaktu(e.target.value)}
-            />
+              onChange={(e) => {
+                let value = e.target.value.replace(/[^0-9]/g, ''); // hanya angka
+                if (value.length > 4) value = value.slice(0, 4);
+                if (value.length > 2) {
+                  value = value.slice(0, 2) + ':' + value.slice(2);
+                }
+                setWaktu(value);
+              }}
+               />
           </div>
         </div>
 
@@ -169,6 +179,7 @@ export default function Panggilan() {
                 <th className="p-2 border">Berat (kg)</th>
                 <th className="p-2 border">Harga/kg (Rp)</th>
                 <th className="p-2 border">Total Harga (Rp)</th>
+                <th className="p-2 border"></th>
               </tr>
             </thead>
             <tbody>
@@ -184,15 +195,24 @@ export default function Panggilan() {
                       onChange={(e) => handleBeratChange(idx, e.target.value)}
                       className="w-20 p-1 border rounded"
                     />
-                  </td>
-                  <td className="p-2 border">{item.hargaPerKg.toLocaleString('id-ID')}</td>
-                  <td className="p-2 border">{item.subtotal.toLocaleString('id-ID')}</td>
+                    </td>
+                    <td className="p-2 border">{item.hargaPerKg.toLocaleString('id-ID')}</td>
+                    <td className="p-2 border">{item.subtotal.toLocaleString('id-ID')}</td>
+                    <td className="p-2 border">
+                      <button
+                        onClick={() => hapusItem(idx)}
+                        className="bg-red-500 text-white text-xs px-1 py-1 w-6 h-6 items-center rounded hover:bg-red-600"
+                      >
+                        <RxCross2 className='w-4'/>
+                      </button>
+                    </td>
                 </tr>
               ))}
             </tbody>
           </table>
           <p className="text-right mt-2 font-semibold">
-            Total Tagihan = Rp{keranjang.reduce((sum, item) => sum + item.subtotal, 0).toLocaleString('id-ID')}
+            Total Tagihan = Rp
+            {Math.floor(keranjang.reduce((sum, item) => sum + item.subtotal, 0) * 0.9).toLocaleString('id-ID')}
           </p>
         </div>
 

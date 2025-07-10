@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './AuthContext';
 import Navbar from './Navbar';
 import Homepage from './pages/Homepage';
-import Order from './pages/Order';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -20,7 +19,6 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/Sampah" element={<Order />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/User" element={<Dashboard />} />

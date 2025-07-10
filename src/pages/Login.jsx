@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import supabase from "../config/supabaseClient"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useAuth } from "../AuthContext";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
+import { HiCheckCircle } from 'react-icons/hi';
 
 function Login(){
     const { login } = useAuth();
@@ -15,6 +16,17 @@ function Login(){
     const [error, setError] = useState(null)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    
+    const [showNotification, setShowNotification] = useState(false);
+
+    useEffect(() => {
+        if (showNotification) {
+            const timer = setTimeout(() => {
+                setShowNotification(false);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showNotification]);
 
     const handleLogin = async (e) =>{
         e.preventDefault()
@@ -37,9 +49,13 @@ function Login(){
         }
         if(data){
             console.log(data)
-            navigate('/User')
             setError(null)
-            login(data);
+            setShowNotification(true);
+            //Biar gak lgsg pindah
+            setTimeout(() => {
+                login(data);
+                navigate('/User');
+            }, 1500);
         }
         
 
@@ -48,6 +64,13 @@ function Login(){
 
     return(
         <>
+         {showNotification && (
+                <div className="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-[var(--color-success-600)] bg-[var(--color-success-50)] rounded-lg shadow-lg z-50" role="alert">
+                    <HiCheckCircle className="w-7 h-7" />
+                    <div className="text-sm font-semibold">Login berhasil!</div>
+                </div>
+            )}
+
         <section className="pt-20 md:h-[900px]">
         <form 
         onSubmit={handleLogin}

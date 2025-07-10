@@ -8,7 +8,6 @@ export default function Rutin() {
   const [durasi, setDurasi] = useState(null);
   const [waktu, setWaktu] = useState('');
   const [alamat, setAlamat] = useState('');
-  const [editMode, setEditMode] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -67,15 +66,10 @@ export default function Rutin() {
 
         <label className="block text-sm font-medium mb-1">Alamat</label>
         <textarea
-          disabled={!editMode}
           value={alamat}
           onChange={(e) => setAlamat(e.target.value)}
-          className="w-full p-2 border rounded-md mb-2 bg-white"
+          className="w-full p-2 border rounded-md mb-4 bg-white"
         />
-        <div className="flex gap-2 mb-4">
-          <button onClick={() => setEditMode(true)} className="bg-primary-500 text-white px-4 py-1 rounded-lg hover:bg-primary-600">Edit</button>
-          <button onClick={() => setEditMode(false)} className="bg-primary-500 text-white px-4 py-1 rounded-lg hover:bg-primary-600">Simpan</button>
-        </div>
 
         <label className="block text-sm font-medium mb-1">Pilih Jadwal</label>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2 bg-white border rounded-xl px-4 py-3">
@@ -104,7 +98,14 @@ export default function Rutin() {
             placeholder="--:--"
             className="w-full p-2 border text-center rounded-md bg-white"
             value={waktu}
-            onChange={(e) => setWaktu(e.target.value)}
+            onChange={(e) => {
+                let value = e.target.value.replace(/[^0-9]/g, ''); // hanya angka
+                if (value.length > 4) value = value.slice(0, 4);
+                if (value.length > 2) {
+                  value = value.slice(0, 2) + ':' + value.slice(2);
+                }
+                setWaktu(value);
+              }}
           />
         </div>
 
