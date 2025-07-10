@@ -6,6 +6,8 @@ import wasteTrackImage from './assets/Rutin.jpg';
 import callIcon from './assets/Calendar.png'
 import RutinIcon from './assets/RutinIcon.png'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 const servicesData = [
   {
@@ -55,31 +57,46 @@ const servicesData = [
 
 
 //  KOMPONEN CARD 
-const ServiceCard = ({ image, icon, title, description, link }) => (
-  <div className="bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 max-w-[458px]">
-    <img src={image} alt={title} className="w-full h-60 object-cover" />
-    
-    <div className="p-8 flex flex-col grow"> 
-      <div className="flex items-center mb-4">
-        <div className="bg-green-100 text-green-600 p-3 rounded-full mr-4">
-          {icon}
-        </div>
-        <h3 className="text-2xl font-bold text-gray-800">{title}</h3> 
-      </div>
-      
-      <div className="grow text-gray-600 text-base leading-relaxed"> 
-        {description}
-      </div>
-      
-      {/* Link di bagian bawah card */}
-      <Link to={link} className="text-green-600 font-bold inline-flex items-center group mt-6"> 
-        Pelajari Lebih Lanjut
-        <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-      </Link>
-    </div>
-  </div>
-);
+const ServiceCard = ({ image, icon, title, description, link }) => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
+  const handleLearnMore = () => {
+    if (!user) {
+      navigate('/Login'); // langsung ke login jika belum login
+    } else {
+      navigate(link); // jika sudah login, arahkan ke halaman layanan
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 max-w-[458px]">
+      <img src={image} alt={title} className="w-full h-60 object-cover" />
+
+      <div className="p-8 flex flex-col grow">
+        <div className="flex items-center mb-4">
+          <div className="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+            {icon}
+          </div>
+          <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
+        </div>
+
+        <div className="grow text-gray-600 text-base leading-relaxed">
+          {description}
+        </div>
+
+        {/* Tombol navigasi */}
+        <button
+          onClick={handleLearnMore}
+          className="text-green-600 font-bold inline-flex items-center group mt-6"
+        >
+          Pelajari Lebih Lanjut
+          <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
+    </div>
+  );
+};
 
 //  Komponen Utama
 const ServicesSection = () => {

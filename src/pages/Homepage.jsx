@@ -4,6 +4,9 @@ import AboutUs from '../About';
 import Why from '../Why';
 import Partners from '../Partner';
 import ServicesSection from '../Services';
+import Manfaat from '../Manfaat';
+import Panduan from '../Panduan';
+import Fokus from '../Fokus';
 
 
 function Homepage() {
@@ -20,6 +23,9 @@ function Homepage() {
         <AboutUs />
         <Why />
         <ServicesSection />
+        <Manfaat />
+        <Panduan />
+        <Fokus />
         
         
       </main>
