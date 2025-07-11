@@ -1,12 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import supabase from "../config/supabaseClient"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useAuth } from "../AuthContext";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-
-
+import { HiCheckCircle } from 'react-icons/hi';
 
 function Register(){
     const { login } = useAuth();
@@ -18,6 +17,17 @@ function Register(){
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [showNotification, setShowNotification] = useState(false);
+    
+        useEffect(() => {
+            if (showNotification) {
+                const timer = setTimeout(() => {
+                    setShowNotification(false);
+                }, 3000);
+                return () => clearTimeout(timer);
+            }
+        }, [showNotification]);
 
     const handleRegister = async (e) =>{
         e.preventDefault()
@@ -39,8 +49,13 @@ function Register(){
         if(data){
             console.log(data)
             setError(null)
-            login(data[0]);
-            navigate('/Register')
+            setShowNotification(true);
+            //Biar gak lgsg pindah
+            setTimeout(() => {
+                login(data[0]);
+                navigate('/User');
+            }, 1500);
+            
         }
     }
 
@@ -48,6 +63,12 @@ function Register(){
 
     return(
         <>
+        {showNotification && (
+                        <div className="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-[var(--color-success-600)] bg-[var(--color-success-50)] rounded-lg shadow-lg z-50" role="alert">
+                            <HiCheckCircle className="w-7 h-7" />
+                            <div className="text-sm font-semibold">Sign Up berhasil!</div>
+                        </div>
+                    )}
         <section className="pt-20 md:h-[900px]">
             <form onSubmit={handleRegister} className="bg-white border border-gray-300 p-8 max-w-md mx-auto rounded-xl shadow-md space-y-4 mt-30">
                 <h2 className="text-center text-2xl font-semibold md:pb-4">Register</h2>

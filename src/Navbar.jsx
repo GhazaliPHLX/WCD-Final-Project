@@ -28,9 +28,9 @@ const Navbar = () => {
   }, []);
 
   const landingLinks = [
-    { href: 'home', label: 'Home' },
-    { href: 'about', label: 'About Us' },
-    { href: 'services', label: 'Services' },
+    { href: 'home', label: 'Beranda' },
+    { href: 'about', label: 'Tentang Kami' },
+    { href: 'services', label: 'Layanan' },
     { href: 'panduan', label: 'Panduan' },
   ];
 
