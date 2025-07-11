@@ -18,7 +18,9 @@ export default function Panggilan() {
   const [alamat, setAlamat] = useState('');
   const [keranjang, setKeranjang] = useState([]);
   const { user } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const biayaLayanan = 25000;
 
   const jenisSampahList = [
     { nama: 'Botol plastik bening', harga: 3500, img: botolBeningimg },
@@ -30,7 +32,6 @@ export default function Panggilan() {
   ];
 
   const tambahKeKeranjang = (nama, hargaPerKg) => {
-    // Tambahkan hanya jika belum ada
     setKeranjang((prev) => {
       if (prev.find((item) => item.nama === nama)) return prev;
       return [...prev, { nama, berat: '', hargaPerKg, subtotal: 0 }];
@@ -53,12 +54,15 @@ export default function Panggilan() {
   };
 
   const hapusItem = (index) => {
-  setKeranjang((prev) => {
-    const newKeranjang = [...prev];
-    newKeranjang.splice(index, 1);
-    return newKeranjang;
-  });
-};
+    setKeranjang((prev) => {
+      const newKeranjang = [...prev];
+      newKeranjang.splice(index, 1);
+      return newKeranjang;
+    });
+  };
+  
+  const totalHargaSampah = keranjang.reduce((sum, item) => sum + item.subtotal, 0);
+  const totalTagihan = biayaLayanan - totalHargaSampah;
 
   const handlePesan = async () => {
     if (!alamat || !selectedDate || !waktu || keranjang.length === 0) {
@@ -66,15 +70,13 @@ export default function Panggilan() {
       return;
     }
 
-    const totalHarga = Math.floor(keranjang.reduce((sum, item) => sum + item.subtotal, 0) * 0.9);
-
     const { data: pesanan, error } = await supabase.from('tb_pesanan').insert([
       {
         user_id: user.id,
         alamat,
         tanggal: selectedDate,
         waktu,
-        total_harga: totalHarga,
+        total_harga: totalTagihan,
       },
     ]).select().single();
     
@@ -107,7 +109,7 @@ export default function Panggilan() {
 
         <div className="w-full h-64 mb-4">
           <iframe
-            src="https://maps.google.com/maps?q=Bekasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="http://googleusercontent.com/maps.google.com/3"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -145,14 +147,14 @@ export default function Panggilan() {
               className="w-full p-2 border rounded-md bg-white"
               value={waktu}
               onChange={(e) => {
-                let value = e.target.value.replace(/[^0-9]/g, ''); // hanya angka
+                let value = e.target.value.replace(/[^0-9]/g, '');
                 if (value.length > 4) value = value.slice(0, 4);
                 if (value.length > 2) {
                   value = value.slice(0, 2) + ':' + value.slice(2);
                 }
                 setWaktu(value);
               }}
-               />
+              />
           </div>
         </div>
 
@@ -210,10 +212,29 @@ export default function Panggilan() {
               ))}
             </tbody>
           </table>
-          <p className="text-right mt-2 font-semibold">
-            Total Tagihan = Rp
-            {Math.floor(keranjang.reduce((sum, item) => sum + item.subtotal, 0) * 0.9).toLocaleString('id-ID')}
-          </p>
+
+          <div className="text-right mt-4 font-medium">
+            <div className='flex justify-end gap-4'>
+                <p>Estimasi Nilai Sampah:</p>
+                <p className='w-32 text-left'>Rp {totalHargaSampah.toLocaleString('id-ID')}</p>
+            </div>
+            <div className='flex justify-end gap-4'>
+                <p>Biaya Layanan:</p>
+                <p className='w-32 text-left'>- Rp {biayaLayanan.toLocaleString('id-ID')}</p>
+            </div>
+            <hr className='my-1'/>
+            {totalTagihan >= 0 ? (
+                <div className='flex justify-end gap-4 font-bold'>
+                    <p>Total Tagihan Akhir:</p>
+                    <p className='w-32 text-left'>Rp {totalTagihan.toLocaleString('id-ID')}</p>
+                </div>
+            ) : (
+                <div className='flex justify-end gap-4 font-bold text-green-600'>
+                    <p>Estimasi Keuntungan Anda:</p>
+                    <p className='w-32 text-left'>Rp {Math.abs(totalTagihan).toLocaleString('id-ID')}</p>
+                </div>
+            )}
+          </div>
         </div>
 
         <div className='pt-6'>
