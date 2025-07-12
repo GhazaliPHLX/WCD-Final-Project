@@ -37,7 +37,7 @@ export default function Manfaat() {
   ];
 
   return (
-    <section className="bg-sky-200 py-16 px-4">
+    <section className="bg-sky-200 py-16 px-4" id='manfaat'>
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-10">
           Bukan Sekadar untuk Lingkungan, Ini Manfaatnya bagi Anda:

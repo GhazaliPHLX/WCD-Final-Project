@@ -109,7 +109,7 @@ export default function Panggilan() {
 
         <div className="w-full h-64 mb-4">
           <iframe
-            src="http://googleusercontent.com/maps.google.com/3"
+            src="https://maps.google.com/maps?q=Bekasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}

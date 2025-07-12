@@ -31,7 +31,7 @@ const Navbar = () => {
     { href: 'home', label: 'Beranda' },
     { href: 'about', label: 'Tentang Kami' },
     { href: 'services', label: 'Layanan' },
-    { href: 'panduan', label: 'Panduan' },
+    { href: 'manfaat', label: 'Panduan' },
   ];
 
   const appLinks = [
